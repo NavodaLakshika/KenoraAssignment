@@ -203,7 +203,7 @@ export default function CalendarModal({
           width: '100%',
           maxWidth: '430px',
           backgroundColor: '#ffffff',
-          borderRadius: '18px',
+          borderRadius: '5px',
           boxShadow: '0 25px 50px -12px rgba(15, 23, 42, 0.25)',
           overflow: 'hidden',
           border: '1px solid #e2e8f0',
