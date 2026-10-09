@@ -150,7 +150,7 @@ export default function WorkshopModal({ workshop, isOpen, onClose, onSuccess }) 
           </button>
         </div>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleFormSubmit}>
           <div className="modal-body">
             {error && (
               <div style={{
@@ -170,8 +170,14 @@ export default function WorkshopModal({ workshop, isOpen, onClose, onSuccess }) 
               </div>
             )}
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '1rem' }}>
-              <div className="form-group">
+            <div style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', 
+              columnGap: '1.25rem', 
+              rowGap: '1.15rem' 
+            }}>
+              {/* Row 1: Workshop Code & Title */}
+              <div className="form-group" style={{ marginBottom: 0 }}>
                 <label className="form-label" htmlFor="code">Workshop Code *</label>
                 <input
                   id="code"
@@ -186,7 +192,7 @@ export default function WorkshopModal({ workshop, isOpen, onClose, onSuccess }) 
                 />
               </div>
 
-              <div className="form-group">
+              <div className="form-group" style={{ marginBottom: 0 }}>
                 <label className="form-label" htmlFor="title">Title *</label>
                 <input
                   id="title"
@@ -200,10 +206,9 @@ export default function WorkshopModal({ workshop, isOpen, onClose, onSuccess }) 
                   required
                 />
               </div>
-            </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-              <div className="form-group">
+              {/* Row 2: Instructor & Location */}
+              <div className="form-group" style={{ marginBottom: 0 }}>
                 <label className="form-label" htmlFor="instructor">Instructor *</label>
                 <input
                   id="instructor"
@@ -218,7 +223,7 @@ export default function WorkshopModal({ workshop, isOpen, onClose, onSuccess }) 
                 />
               </div>
 
-              <div className="form-group">
+              <div className="form-group" style={{ marginBottom: 0 }}>
                 <label className="form-label" htmlFor="location">Location *</label>
                 <select
                   id="location"
@@ -233,10 +238,9 @@ export default function WorkshopModal({ workshop, isOpen, onClose, onSuccess }) 
                   <option value="Centre C">Centre C (Studio)</option>
                 </select>
               </div>
-            </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-              <div className="form-group">
+              {/* Row 3: Start Date & End Date */}
+              <div className="form-group" style={{ marginBottom: 0 }}>
                 <label className="form-label" htmlFor="startDateTime">Start Date & Time *</label>
                 <div 
                   className="filter-input-wrap" 
@@ -249,7 +253,7 @@ export default function WorkshopModal({ workshop, isOpen, onClose, onSuccess }) 
                     type="text"
                     readOnly
                     className="filter-input filter-input-with-icon"
-                    style={{ cursor: 'pointer' }}
+                    style={{ cursor: 'pointer', borderRadius: '5px' }}
                     placeholder="Select start date & time..."
                     value={formData.startDateTime ? new Date(formData.startDateTime).toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : ''}
                     required
@@ -257,8 +261,8 @@ export default function WorkshopModal({ workshop, isOpen, onClose, onSuccess }) 
                 </div>
               </div>
 
-              <div className="form-group">
-                <label className="filter-label" htmlFor="endDateTime">End Date & Time *</label>
+              <div className="form-group" style={{ marginBottom: 0 }}>
+                <label className="form-label" htmlFor="endDateTime">End Date & Time *</label>
                 <div 
                   className="filter-input-wrap" 
                   style={{ cursor: 'pointer' }}
@@ -270,17 +274,16 @@ export default function WorkshopModal({ workshop, isOpen, onClose, onSuccess }) 
                     type="text"
                     readOnly
                     className="filter-input filter-input-with-icon"
-                    style={{ cursor: 'pointer' }}
+                    style={{ cursor: 'pointer', borderRadius: '5px' }}
                     placeholder="Select end date & time..."
                     value={formData.endDateTime ? new Date(formData.endDateTime).toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : ''}
                     required
                   />
                 </div>
               </div>
-            </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-              <div className="form-group">
+              {/* Row 4: Capacity & Status */}
+              <div className="form-group" style={{ marginBottom: 0 }}>
                 <label className="form-label" htmlFor="capacity">Capacity (Seats) *</label>
                 <input
                   id="capacity"
@@ -296,7 +299,7 @@ export default function WorkshopModal({ workshop, isOpen, onClose, onSuccess }) 
                 />
               </div>
 
-              <div className="form-group">
+              <div className="form-group" style={{ marginBottom: 0 }}>
                 <label className="form-label" htmlFor="status">Status *</label>
                 <select
                   id="status"
@@ -315,10 +318,11 @@ export default function WorkshopModal({ workshop, isOpen, onClose, onSuccess }) 
             </div>
           </div>
 
-          <div className="modal-footer">
+          <div className="modal-footer" style={{ borderBottomLeftRadius: '5px', borderBottomRightRadius: '5px' }}>
             <button
               type="button"
               className="btn btn-secondary"
+              style={{ borderRadius: '5px' }}
               onClick={onClose}
               disabled={submitting}
             >
@@ -327,6 +331,7 @@ export default function WorkshopModal({ workshop, isOpen, onClose, onSuccess }) 
             <button
               type="submit"
               className="btn btn-primary"
+              style={{ borderRadius: '5px' }}
               disabled={submitting}
             >
               {submitting ? 'Saving...' : (isEditing ? 'Save Changes' : 'Create Workshop')}

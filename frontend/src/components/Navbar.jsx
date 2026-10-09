@@ -53,30 +53,32 @@ export default function Navbar() {
           </NavLink>
 
           <div className="nav-links">
-            <NavLink
-              to="/dashboard"
-              className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
-            >
-              <LayoutDashboard size={16} />
-              <span>Dashboard</span>
-            </NavLink>
-
-            <NavLink
-              to="/workshops"
-              className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
-            >
-              <Calendar size={16} />
-              <span>Workshops</span>
-            </NavLink>
-
             {(role === 'Manager' || role === 'Staff') && (
-              <NavLink
-                to="/registrations"
-                className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
-              >
-                <ClipboardList size={16} />
-                <span>Registrations</span>
-              </NavLink>
+              <>
+                <NavLink
+                  to="/dashboard"
+                  className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+                >
+                  <LayoutDashboard size={16} />
+                  <span>Dashboard</span>
+                </NavLink>
+
+                <NavLink
+                  to="/workshops"
+                  className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+                >
+                  <Calendar size={16} />
+                  <span>Workshops</span>
+                </NavLink>
+
+                <NavLink
+                  to="/registrations"
+                  className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+                >
+                  <ClipboardList size={16} />
+                  <span>Registrations</span>
+                </NavLink>
+              </>
             )}
 
             {role === 'Admin' && (

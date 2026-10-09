@@ -146,3 +146,4 @@ D:\Navoda\Kenora\backend\WorkshopRegistration.Api\obj\Debug\net8.0\refint\Worksh
 D:\Navoda\Kenora\backend\WorkshopRegistration.Api\obj\Debug\net8.0\WorkshopRegistration.Api.pdb
 D:\Navoda\Kenora\backend\WorkshopRegistration.Api\obj\Debug\net8.0\WorkshopRegistration.Api.genruntimeconfig.cache
 D:\Navoda\Kenora\backend\WorkshopRegistration.Api\obj\Debug\net8.0\ref\WorkshopRegistration.Api.dll
+D:\Navoda\Kenora\backend\WorkshopRegistration.Api\obj\Debug\net8.0\WorkshopRegistration.Api.sourcelink.json

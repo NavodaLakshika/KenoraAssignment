@@ -42,7 +42,7 @@ function RoleGuard({ allowedRoles, children }) {
   if (loading) return null;
 
   if (!allowedRoles.includes(role)) {
-    return <Navigate to="/dashboard" replace />;
+    return <Navigate to={role === 'Admin' ? '/users' : '/dashboard'} replace />;
   }
 
   return children;
@@ -59,7 +59,14 @@ export default function App() {
             <Route element={<ProtectedLayout />}>
               <Route path="/" element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/workshops" element={<Workshops />} />
+              <Route
+                path="/workshops"
+                element={
+                  <RoleGuard allowedRoles={['Manager', 'Staff']}>
+                    <Workshops />
+                  </RoleGuard>
+                }
+              />
 
               <Route
                 path="/registrations"

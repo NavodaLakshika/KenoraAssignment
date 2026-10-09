@@ -23,7 +23,11 @@ export default function Login() {
       setLoading(true);
       const user = await login(email, password);
       toast.success(`Welcome back, ${user.fullName}!`);
-      navigate('/dashboard');
+      if (user.role === 'Admin') {
+        navigate('/users');
+      } else {
+        navigate('/dashboard');
+      }
     } catch (err) {
       const msg = err.response?.data?.message || 'Invalid email or password.';
       setError(msg);
@@ -40,7 +44,11 @@ export default function Login() {
     login(demoEmail, demoPassword)
       .then((user) => {
         toast.success(`Logged in as ${user.fullName} (${user.role})`);
-        navigate('/dashboard');
+        if (user.role === 'Admin') {
+          navigate('/users');
+        } else {
+          navigate('/dashboard');
+        }
       })
       .catch((err) => {
         setError(err.response?.data?.message || 'Login failed.');

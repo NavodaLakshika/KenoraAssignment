@@ -102,9 +102,9 @@ IF NOT EXISTS (SELECT 1 FROM dbo.Users WHERE Email = 'admin@workshop.com')
 BEGIN
     INSERT INTO dbo.Users (FullName, Email, PasswordHash, Role, IsActive, CreatedAt)
     VALUES 
-    ('Navoda (Admin)', 'admin@navoda.com', '$2a$11$eE0m9Z4sT9v7Vl1bEsmRle0dGhy.xZ33w7.00f9R2jD9fL/o.Z8e2', 'Admin', 1, GETUTCDATE()),
-    ('Lakshika (Manager)', 'manager@lakshika.com', '$2a$11$eE0m9Z4sT9v7Vl1bEsmRle0dGhy.xZ33w7.00f9R2jD9fL/o.Z8e2', 'Manager', 1, GETUTCDATE()),
-    ('Wijesundara (Staff)', 'staff@wijesundara.com', '$2a$11$eE0m9Z4sT9v7Vl1bEsmRle0dGhy.xZ33w7.00f9R2jD9fL/o.Z8e2', 'Staff', 1, GETUTCDATE());
+    ('Eleanor Vance (Admin)', 'admin@workshop.com', '$2a$11$eE0m9Z4sT9v7Vl1bEsmRle0dGhy.xZ33w7.00f9R2jD9fL/o.Z8e2', 'Admin', 1, GETUTCDATE()),
+    ('Mark Robinson (Manager)', 'manager@workshop.com', '$2a$11$eE0m9Z4sT9v7Vl1bEsmRle0dGhy.xZ33w7.00f9R2jD9fL/o.Z8e2', 'Manager', 1, GETUTCDATE()),
+    ('Sarah Jenkins (Staff)', 'staff@workshop.com', '$2a$11$eE0m9Z4sT9v7Vl1bEsmRle0dGhy.xZ33w7.00f9R2jD9fL/o.Z8e2', 'Staff', 1, GETUTCDATE());
 END
 GO
 

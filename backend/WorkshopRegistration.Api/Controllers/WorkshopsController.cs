@@ -6,7 +6,7 @@ using WorkshopRegistration.Api.Services;
 
 namespace WorkshopRegistration.Api.Controllers;
 
-[Authorize]
+[Authorize(Roles = "Manager,Staff")]
 [ApiController]
 [Route("api/[controller]")]
 public class WorkshopsController : ControllerBase
